@@ -5,9 +5,9 @@ import streamlit as st
 import openai
 
 # configuring openai - api key
-working_dir = os.path.dirname(os.path.abspath(__file__))
-config_data = json.load(open(f"{working_dir}/config.toml"))
-OPENAI_API_KEY = config_data["openai"]["api_key"]
+# working_dir = os.path.dirname(os.path.abspath(__file__))
+# config_data = json.load(open(f"{working_dir}/config.toml"))
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 openai.api_key = OPENAI_API_KEY
 
 # configuring streamlit page settings
