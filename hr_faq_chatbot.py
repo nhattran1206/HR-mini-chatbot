@@ -7,7 +7,7 @@ openai.api_key = OPENAI_API_KEY
 
 # configuring streamlit page settings
 st.set_page_config(
-    page_title="GPT-4o Chat",
+    page_title="mini FAQ assistant",
     page_icon="💬",
     layout="centered"
 )
