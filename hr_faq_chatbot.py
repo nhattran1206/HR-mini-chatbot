@@ -49,7 +49,7 @@ if user_prompt:
                     <user_question>[insert question(s)]</user_question>
                     <ai_response>
                         <!-- Check if the question is specific enough to refer to a policy directly -->
-                        <!-- If yes, call the policy retrieval section to get the response -->
+                        <!-- If yes, call the <policy_retrieval_prompt> section to get the response -->
                     </ai_response>
                 </initial_inquiry_prompt>\n
                 <!-- If the question needs more clarification or is too broad -->
@@ -68,10 +68,12 @@ if user_prompt:
                         <ai_response>
                             Here’s how to proceed with [insert topic] regarding [insert aspect]. Please follow these steps:
                             1. [Step 1: Describe action and timeline]
-                            2. [Step 2: Action with additional clarification, if needed]
+                            2. [Step 2: Action with detailed clarification, if needed]
                             3. [Step 3: Final action with a note on possible follow-up]
-                            Additional tips: [Include advice if applicable, e.g., ‘Remember to check if you have enough leave balance before applying.’]
-                        </ai_response>
+                        </ai_response>\n
+                        <ai_response> 
+                            Additional tips: [Include some helpful advice if applicable so that when users follow the given instructions or information, they also show excellent common sense , e.g., ‘Remember to check if you have enough leave balance before applying.’]
+                        </ai_response> 
                     </step_by_step_instructions_with_additional_tips_prompt>
                     \n
                     <follow_up_prompt_for_additional_information>
