@@ -48,27 +48,8 @@ if user_prompt:
                 <initial_inquiry_prompt>
                     <user_question>[insert question(s)]</user_question>
                     <ai_response>
-                        <!-- If the question is clear enough to answer directly -->
-                        Your question is clear, I’ll answer it right away. Here’s the response:
-
-                        <policy_retrieval_prompt>
-                            <ai_response>
-                                Based on your interest in [insert topic], here’s a step-by-step guide or policy you can follow. Let's go through the necessary steps:
-                            </ai_response>
-                            <step_by_step_instructions_with_additional_tips_prompt>
-                                <ai_response>
-                                    Here’s how to proceed with [insert topic] regarding [insert aspect]. Please follow these steps:
-                                    1. [Step 1: Describe action and timeline]
-                                    2. [Step 2: Action with additional clarification, if needed]
-                                    3. [Step 3: Final action with a note on possible follow-up]
-                                    Additional tips: [Include advice if applicable, e.g., ‘Remember to check if you have enough leave balance before applying.’]
-                                </ai_response>
-                            </step_by_step_instructions_with_additional_tips_prompt>
-                        </policy_retrieval_prompt>
-
-                        <follow_up_prompt_for_additional_information>
-                            <ai_response>If you need more information or clarification on any of the steps, feel free to ask! Is there any specific part of [insert topic] you’d like more details on?</ai_response>
-                        </follow_up_prompt_for_additional_information>
+                        <!-- Check if the question is specific enough to refer to a policy directly -->
+                        <!-- If yes, call the policy retrieval section to get the response -->
                     </ai_response>
                 </initial_inquiry_prompt>\n
                 <!-- If the question needs more clarification or is too broad -->
@@ -92,11 +73,11 @@ if user_prompt:
                             Additional tips: [Include advice if applicable, e.g., ‘Remember to check if you have enough leave balance before applying.’]
                         </ai_response>
                     </step_by_step_instructions_with_additional_tips_prompt>
+                    \n
+                    <follow_up_prompt_for_additional_information>
+                        <ai_response>If you need more information or clarification on any of the steps, feel free to ask! Is there any specific part of [insert topic] you’d like more details on?</ai_response>
+                    </follow_up_prompt_for_additional_information>\n
                 </policy_retrieval_prompt>\n
-
-                <follow_up_prompt_for_additional_information>
-                    <ai_response>If you need more information or clarification on any of the steps, feel free to ask! Is there any specific part of [insert topic] you’d like more details on?</ai_response>
-                </follow_up_prompt_for_additional_information>\n
             </system
             """},
             *st.session_state.chat_history
